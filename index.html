@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Free Movie Streaming Site</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+    }
+    header img.logo {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .search-bar {
+      margin: 15px auto;
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .search-bar:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px #00bcd4;
+    }
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      transition: all 0.3s ease;
+    }
+    .search-bar input[type="text"]:focus {
+      outline: none;
+      background-color: #2a2a2a;
+      color: #00bcd4;
+    }
+    .search-bar button {
+      padding: 10px;
+      background-color: #00bcd4;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      transition: background-color 0.3s ease;
+    }
+    .search-bar button:hover {
+      background-color: #0194a6;
+    }
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .movie {
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .movie:hover {
+      transform: scale(1.05);
+    }
+    .movie img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+    .movie-title {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+    }
+  </style>
+  <script>
+    function searchMovies() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const movies = document.getElementsByClassName('movie');
+
+      Array.from(movies).forEach(movie => {
+        const title = movie.querySelector('.movie-title').textContent.toLowerCase();
+        movie.style.display = title.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="your-logo.jpg" alt="Logo" class="logo">
+    <h1>My Movie Stream</h1>
+    <p>No software, no login. Just click and watch or download!</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search for movies...">
+      <button onclick="searchMovies()">Search</button>
+    </div>
+  </header>
+
+  <main class="movie-grid">
+    <div class="movie">
+      <a href="YOUR_MOVIE_PAGE_1.html">
+        <img src="https://via.placeholder.com/200x300.png?text=Movie+1" alt="Movie 1">
+      </a>
+      <div class="movie-title">Movie Title 1</div>
+    </div>
+
+    <div class="movie">
+      <a href="YOUR_MOVIE_PAGE_2.html">
+        <img src="https://via.placeholder.com/200x300.png?text=Movie+2" alt="Movie 2">
+      </a>
+      <div class="movie-title">Movie Title 2</div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 My Movie Stream. No ads. No login. Direct streaming and download available.
+    <div class="social-icons">
+      <a href="https://instagram.com/yourprofile" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+      <a href="https://t.me/yourchannel" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Telegram_2019_logo.svg" alt="Telegram">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
